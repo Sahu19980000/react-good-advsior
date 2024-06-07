@@ -3,6 +3,7 @@ import { Buttoncomponent } from '@/components/button'
 import Link from 'next/link'
 import React from 'react'
 import Certificate from '../certificate-desc'
+import Image from 'next/image'
 
 const Good_advisor_registration = () => {
     return (
@@ -33,7 +34,7 @@ const Good_advisor_registration = () => {
                                             </div>
 
                                             <div className=''>
-                                                <div className='text-white gst-notification'>Get easy updates through  <img src="../../images/whatspp.png" className='img-fluid'/>&nbsp;Whatsapp&nbsp;
+                                                <div className='text-white gst-notification'>Get easy updates through  <Image src="/images/whatspp.png" className='Image-fluid' width={20} height={20} />&nbsp;Whatsapp&nbsp;
                                                 <input type="checkbox" id="cbx" style={{ display: "none" }} />
                                                         <label for="cbx" class="toggle"><span></span></label>
                                                     <span class="checkbox">

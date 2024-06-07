@@ -1,3 +1,4 @@
+import Subheading from '@/components/all-shared/sub-heading';
 import React from 'react'
 
 const Our_supporter = () => {
@@ -6,7 +7,8 @@ const Our_supporter = () => {
         <div className="container">
             <div className="row">
                 <div className="col-lg-12 ">
-                <h2 className='text-black pt-3 text-center heading'>Our Supporter</h2>
+                <h2 className='text-black pt-3 text-center heading'></h2>
+                    <Subheading  title="Our Supporter" textalign="center"/>
                     <img src='../../images/our-supporter.png' className='img-fluid'/>
                 </div>
             </div>

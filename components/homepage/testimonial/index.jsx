@@ -1,5 +1,6 @@
 import React from 'react'
 import TestimonialCards from './testimonial-card';
+import Subheading from '@/components/all-shared/sub-heading';
 
 const Testimonial_container = () => {
   return (
@@ -7,7 +8,7 @@ const Testimonial_container = () => {
       <div className="container">
          <div className="row">  
             <div className="col-12">
-            <h2 className='text-center pt-3 pb-3 heading'>What people say about us</h2>
+              <Subheading title="What people say about us" textalign="center"/>
             <TestimonialCards />
             </div>
          </div>

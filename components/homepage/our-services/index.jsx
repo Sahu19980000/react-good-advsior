@@ -1,6 +1,7 @@
 import React from 'react'
 import PlanCard from './plancard'
 import PricingTable from './pricingtable/Pricingtable'
+import Subheading from '@/components/all-shared/sub-heading'
 
 const Our_services = () => {
   return (
@@ -8,7 +9,8 @@ const Our_services = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h1 className='text-center'>Our Services at a Glance</h1>
+            <Subheading title="Our Services at a Glance" />
+            {/* <h1 className='text-center'></h1> */}
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <p>There are many variations of passages of Lorem Ipsum available.</p>
           </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 const Certificate = () => {
@@ -10,14 +11,14 @@ const Certificate = () => {
 at</h2>
               <ul className='list-certificate-feature'>
                 <li className=''>
-                    <img src='../../images/arrow-icon.png' />
+                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
                 <li className=''>
-                    <img src='../../images/arrow-icon.png' />
+                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
@@ -25,20 +26,20 @@ at</h2>
                      
                 </li>
                 <li className=''>
-                    <img src='../../images/arrow-icon.png' />
+                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
                 <li className=''>
-                    <img src='../../images/arrow-icon.png' />
+                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
-                <img src='../../images/image-client.png' className='img-fluid p-4'/>
+                <Image src='/images/image-client.png' className='Image-fluid p-4' width={600} height={100}/>
               </ul>
            </div>
          </div>

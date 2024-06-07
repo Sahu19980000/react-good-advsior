@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Card_box from './card-box'
+import Subheading from '@/components/all-shared/sub-heading'
 
 const Whychooseus = () => {
     return (
@@ -9,7 +10,7 @@ const Whychooseus = () => {
                 <div className="row">
                     <div className="col-lg-4 col-12 d-flex flex-column justify-content-center ">
                         <div className='customer-left' >
-                        <h2 className=' pt-3 heading'>Reason Why Customers Love Us</h2>
+                            <Subheading  title="Reason Why Customers Love Us" textAlign="start"/>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.</p>
                         <Link href="/">Documents Required</Link>
                         </div>

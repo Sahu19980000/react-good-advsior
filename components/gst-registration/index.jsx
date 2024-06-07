@@ -9,7 +9,7 @@ import Footerfile from '../shared/footer'
 const Gst_registration = () => {
   return (
     <>
-      <HeaderFile />
+      <HeaderFile /> 
         <Good_advisor_registration />
         <Step_process />
         <Unblock_benfit />

@@ -7,6 +7,7 @@ import Formstep from './form-step';
 import Certificate from './certificate-desc';
 import Link from 'next/link';
 import { Buttoncomponent } from '../button';
+import Image from 'next/image';
 
 export const ThemeContext = createContext(33);
 
@@ -65,7 +66,7 @@ const Company_registration_step = () => {
           <div className="row">
             <div className="col-lg-4 col-12">
               <Link href="/">
-              <img src='../../images/logo.png' /><br />
+              <Image src='/images/logo.png' alt='good-advsior-logo' width={200} height={50}/><br />
               </Link>
               <h5 style={{ display: "none" }} className='heading_data'><Link href="/">Home</Link></h5>
               <div className="registration-step-box m-2 rounded">
