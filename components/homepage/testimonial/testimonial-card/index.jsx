@@ -29,7 +29,7 @@ const TestimonialCards = () => {
         <SwiperSlide >
         <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
+              <Image src="/images/icon/Rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
@@ -52,7 +52,7 @@ const TestimonialCards = () => {
         <SwiperSlide>
           <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
+              <Image src="/images/icon/Rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
@@ -75,7 +75,7 @@ const TestimonialCards = () => {
         <SwiperSlide>
         <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
+              <Image src="/images/icon/Rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
@@ -98,7 +98,7 @@ const TestimonialCards = () => {
         <SwiperSlide>
         <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
+              <Image src="/images/icon/Rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
