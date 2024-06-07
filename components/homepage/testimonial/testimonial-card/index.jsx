@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
+import Image from 'next/image';
 
 const TestimonialCards = () => {
   return (
@@ -26,22 +27,45 @@ const TestimonialCards = () => {
         className="mySwiper"
       >
         <SwiperSlide >
+        <div className="testimonial-box">
+            <div className="star">
+              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating"/>
+            </div>
+            <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
+            <div className="reverw-name">
+              <div className="row">
+                <div className="col-lg-6">
+                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
+                  <div>
+                    <h3>Robert Fox</h3>
+                    <h5>UI/UX Designer</h5>
+                  </div>
+                </div>
+                <div className="col-lg-6 d-flex align-items-end">
+                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon'/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
           <div className="testimonial-box">
             <div className="star">
-              <img src="../../images/icon/rating.png" />
+              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
             </div>
-            <p>“Ut ullamcorper hendrerit tempos Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
+            <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
               <div className="row">
                 <div className="col-lg-6">
-                  <img src='../../images/reviewer-name.png' />
+                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
                   <div>
                     <h3>Robert Fox</h3>
                     <h5>UI/UX Designer</h5>
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-end">
-                  <img src='../../images/Quote.png' />
+                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
 
@@ -49,22 +73,22 @@ const TestimonialCards = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className="testimonial-box">
+          <div className="testimonial-box">
             <div className="star">
-              <img src="../../images/icon/rating.png" />
+              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
               <div className="row">
                 <div className="col-lg-6">
-                  <img src='../../images/reviewer-name.png' />
+                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
                   <div>
                     <h3>Robert Fox</h3>
                     <h5>UI/UX Designer</h5>
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-end">
-                  <img src='../../images/Quote.png' />
+                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
 
@@ -72,45 +96,22 @@ const TestimonialCards = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className="testimonial-box">
+          <div className="testimonial-box">
             <div className="star">
-              <img src="../../images/icon/rating.png" />
+              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
               <div className="row">
                 <div className="col-lg-6">
-                  <img src='../../images/reviewer-name.png' />
+                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
                   <div>
                     <h3>Robert Fox</h3>
                     <h5>UI/UX Designer</h5>
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-end">
-                  <img src='../../images/Quote.png' />
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="testimonial-box">
-            <div className="star">
-              <img src="../../images/icon/rating.png" />
-            </div>
-            <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
-            <div className="reverw-name">
-              <div className="row">
-                <div className="col-lg-6">
-                  <img src='../../images/reviewer-name.png' />
-                  <div>
-                    <h3>Robert Fox</h3>
-                    <h5>UI/UX Designer</h5>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-12 d-flex align-items-end">
-                  <img src='../../images/Quote.png' />
+                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
 

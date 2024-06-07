@@ -11,14 +11,14 @@ const Certificate = () => {
 at</h2>
               <ul className='list-certificate-feature'>
                 <li className=''>
-                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
+                    <Image src='/images/arrow-icon.png' width={50} height={50} alt="arrow-icon"/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
                 <li className=''>
-                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
+                    <Image src='/images/arrow-icon.png' width={50} height={50} alt="arrow-icon"/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
@@ -26,20 +26,20 @@ at</h2>
                      
                 </li>
                 <li className=''>
-                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
+                    <Image src='/images/arrow-icon.png' width={50} height={50} alt="arrow-icon"/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
                 <li className=''>
-                    <Image src='/images/arrow-icon.png' width={50} height={50}/>
+                    <Image src='/images/arrow-icon.png' width={50} height={50} alt="arrow-icon"/>
                     <div className='certificate-container'>
                     <h4>Timely submission of application</h4>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
-                <Image src='/images/image-client.png' className='Image-fluid p-4' width={600} height={100}/>
+                <Image src='/images/image-client.png' className='Image-fluid p-4' width={600} height={100} alt="arrow-icon"/>
               </ul>
            </div>
          </div>

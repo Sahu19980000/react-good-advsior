@@ -34,7 +34,7 @@ const Good_advisor_registration = () => {
                                             </div>
 
                                             <div className=''>
-                                                <div className='text-white gst-notification'>Get easy updates through  <Image src="/images/whatspp.png" className='Image-fluid' width={20} height={20} />&nbsp;Whatsapp&nbsp;
+                                                <div className='text-white gst-notification'>Get easy updates through  <Image src="/images/whatspp.png" className='Image-fluid' width={20} height={20} alt="whatspp-icon"/>&nbsp;Whatsapp&nbsp;
                                                 <input type="checkbox" id="cbx" style={{ display: "none" }} />
                                                         <label for="cbx" class="toggle"><span></span></label>
                                                     <span class="checkbox">

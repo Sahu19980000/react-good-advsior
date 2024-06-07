@@ -1,6 +1,6 @@
 "use client";
+import Image from 'next/image';
 import React from 'react'
-
 
 const Hero_section = () => {
 
@@ -31,9 +31,9 @@ const Hero_section = () => {
                                 }
                             </div>
                             <div>
-                                <img src="../../images/legal-services-platform.png"
-                                    className='img-fluid'
-                                    alt="legal-services-platform" />
+                                <Image src="/images/legal-services-platform.png"
+                                    className='Image-fluid'
+                                    alt="legal-services-platform"  width={1000} height={130}/>
                             </div>
                         </div>
                     </div>
