@@ -1,0 +1,36 @@
+{
+    "all_services": [
+        {
+            "title": "Claim input tax credit",
+            "icon":"../../images/icon/easy-to-use-dashboard.png"
+        },
+        {
+            "title": "Prevent levy of interest",
+            "icon":"../../images/icon/professional-services.png"
+        },
+        {
+            "title": "Avert GST cancellation",
+            "icon":"../../images/icon/quick-support.png"
+        },
+        {
+            "title": "Claim input tax credit",
+            "icon":"../../images/icon/easy-to-use-dashboard.png"
+        },
+        {
+            "title": "Prevent levy of interest",
+            "icon":"../../images/icon/professional-services.png"
+        },
+        {
+            "title": "Avert GST cancellation",
+            "icon":"../../images/icon/quick-support.png"
+        },
+        {
+            "title": "Claim input tax credit",
+            "icon":"../../images/icon/easy-to-use-dashboard.png"
+        },
+        {
+            "title": "Prevent levy of interest",
+            "icon":"../../images/icon/professional-services.png"
+        }
+    ]
+}

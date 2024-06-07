@@ -1,0 +1,138 @@
+{
+    "tabs": [
+      {
+        "title": "Register Your Business",
+        "plans": [
+          {
+            "title": "Private Limited Company Registration",
+            "price": "₹999",
+            "description": "GST and Govt. fees extra.",
+            "features": [
+              "Unlimited financial accounts",
+              "Rollover budgeting",
+              "Investment tracking",
+              "Subscription tracking",
+              "Custom financial goals",
+              "Venmo support",
+              "Sync vehicle values"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Private Limited Company Registration",
+            "price": "₹999",
+            "description": "GST and Govt. fees extra.",
+            "features": [
+              "Unlimited financial accounts",
+              "Rollover budgeting",
+              "Investment tracking",
+              "Subscription tracking",
+              "Custom financial goals",
+              "Venmo support",
+              "Sync vehicle values"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Private Limited Company Registration",
+            "price": "₹999",
+            "description": "GST and Govt. fees extra.",
+            "features": [
+              "Unlimited financial accounts",
+              "Rollover budgeting",
+              "Investment tracking",
+              "Subscription tracking",
+              "Custom financial goals",
+              "Venmo support",
+              "Sync vehicle values"
+            ],
+            "link_text": "Know More"
+          }
+        ]
+      },
+      {
+        "title": "Get Licenses and Registrations",
+        "plans": [
+          {
+            "title": "GST Registration",
+            "price": "₹499",
+            "description": "GST fees extra.",
+            "features": [
+              "Comprehensive GST registration",
+              "GST filing support",
+              "Expert consultation",
+              "Timely reminders",
+              "Dedicated account manager"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Import Export Code (IEC)",
+            "price": "₹799",
+            "description": "Government fees extra.",
+            "features": [
+              "Fast IEC registration",
+              "Complete documentation support",
+              "Expert guidance",
+              "24/7 customer support"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Import Export Code (IEC)",
+            "price": "₹799",
+            "description": "Government fees extra.",
+            "features": [
+              "Fast IEC registration",
+              "Complete documentation support",
+              "Expert guidance",
+              "24/7 customer support"
+            ],
+            "link_text": "Know More"
+          }
+        ]
+      },
+      {
+        "title": "Protect Your Intellectual Property",
+        "plans": [
+          {
+            "title": "Trademark Registration",
+            "price": "₹1499",
+            "description": "Government fees extra.",
+            "features": [
+              "Trademark search",
+              "Filing trademark application",
+              "Expert consultation",
+              "Trademark monitoring"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Patent Registration",
+            "price": "₹1999",
+            "description": "Government fees extra.",
+            "features": [
+              "Patent search",
+              "Filing patent application",
+              "Technical consultation",
+              "Patent monitoring"
+            ],
+            "link_text": "Know More"
+          },
+          {
+            "title": "Patent Registration",
+            "price": "₹1999",
+            "description": "Government fees extra.",
+            "features": [
+              "Patent search",
+              "Filing patent application",
+              "Technical consultation",
+              "Patent monitoring"
+            ],
+            "link_text": "Know More"
+          }
+        ]
+      }
+    ]
+  }
+  
