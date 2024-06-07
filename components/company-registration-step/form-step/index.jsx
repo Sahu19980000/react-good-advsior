@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '..';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-brands-svg-icons';
 
 const Formstep = (props) => {
 
@@ -28,7 +27,6 @@ const Formstep = (props) => {
                         <h4 className='' style={{width:`${finalwidth.width}%`}}>
                         
                         </h4>
-                        <FontAwesomeIcon icon={faCircle} className='' />
                     </div>
                 </div>
             </div>
