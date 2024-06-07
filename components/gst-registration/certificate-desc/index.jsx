@@ -39,7 +39,7 @@ at</h2>
                      <p>100% compliance assurance so that you can focus only on your business</p>
                     </div>
                 </li>
-                <Image src='/images/image-client.png' className='Image-fluid p-4' width={600} height={100} alt="arrow-icon"/>
+                <Image src='/images/image-client.png' className='img-fluid p-4' width={600} height={100} alt="arrow-icon"/>
               </ul>
            </div>
          </div>

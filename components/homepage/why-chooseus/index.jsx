@@ -9,7 +9,7 @@ const Whychooseus = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-4 col-12 d-flex flex-column justify-content-center ">
-                        <div className='customer-left' >
+                        <div className='customer-left p-5' >
                             <Subheading  title="Reason Why Customers Love Us" textAlign="start"/>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.</p>
                         <Link href="/">Documents Required</Link>

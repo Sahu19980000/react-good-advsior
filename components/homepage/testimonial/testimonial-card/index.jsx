@@ -29,30 +29,7 @@ const TestimonialCards = () => {
         <SwiperSlide >
         <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating"/>
-            </div>
-            <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
-            <div className="reverw-name">
-              <div className="row">
-                <div className="col-lg-6">
-                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
-                  <div>
-                    <h3>Robert Fox</h3>
-                    <h5>UI/UX Designer</h5>
-                  </div>
-                </div>
-                <div className="col-lg-6 d-flex align-items-end">
-                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon'/>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="testimonial-box">
-            <div className="star">
-              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
+              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
@@ -75,7 +52,7 @@ const TestimonialCards = () => {
         <SwiperSlide>
           <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
+              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">
@@ -96,9 +73,32 @@ const TestimonialCards = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="testimonial-box">
+        <div className="testimonial-box">
             <div className="star">
-              <Image src="/images/icon/rating.png" width={25} height={25} alt="rating" />
+              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
+            </div>
+            <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
+            <div className="reverw-name">
+              <div className="row">
+                <div className="col-lg-6">
+                  <Image src='/images/reviewer-name.png' width={50} height={50} alt="testiminoal-name" />
+                  <div>
+                    <h3>Robert Fox</h3>
+                    <h5>UI/UX Designer</h5>
+                  </div>
+                </div>
+                <div className="col-lg-6 d-flex align-items-end">
+                  <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="testimonial-box">
+            <div className="star">
+              <Image src="/images/icon/rating.png" width={50} height={10} alt="rating" />
             </div>
             <p>“Ut ullamcorper hendrerit tempor. Aliquam in rutrum dui. Maecenas ac placerat metus, in faucibus est.”</p>
             <div className="reverw-name">

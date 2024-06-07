@@ -32,7 +32,7 @@ const Hero_section = () => {
                             </div>
                             <div>
                                 <Image src="/images/legal-services-platform.png"
-                                    className='Image-fluid'
+                                    className='img-fluid'
                                     alt="legal-services-platform"  width={1000} height={130}/>
                             </div>
                         </div>
