@@ -390,20 +390,20 @@ a {
   height: 100vh;
    background-color: #ffffff;
 }
-.login-container .sign-right .sign-mobile-no{
+.login-container .sign-right .sign-email,.login-container .sign-right .sign-password {
    border:none;
    font-size: 18px;
    font-weight: 600;
    border:none;
    
 }
-.login-container .sign-right .sign-mobile-no:focus{
+.login-container .sign-right .sign-email:focus,.login-container .sign-right .sign-password:focus {
   outline: none;
 }
-.login-container .sign-right .sign-mobile-no::placeholder{
+.login-container .sign-right .sign-email::placeholder , .login-container .sign-right .sign-password::placeholder{
   color: #082864;
 }
-.login-container .sign-right form .sign-btn{
+.login-container .sign-right form .sign-btn , .login-container .sign-right form .signup-btn{
   padding: 10px 20px;
   background: linear-gradient(#30F3B8 , #4A86DF);
   color: #ffffff;

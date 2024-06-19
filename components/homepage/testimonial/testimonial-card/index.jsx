@@ -45,7 +45,6 @@ const TestimonialCards = () => {
                   <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
-
             </div>
           </div>
         </SwiperSlide>
@@ -68,7 +67,6 @@ const TestimonialCards = () => {
                   <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
-
             </div>
           </div>
         </SwiperSlide>
@@ -91,7 +89,6 @@ const TestimonialCards = () => {
                   <Image src='/images/Quote.png' width={25} height={25} alt='quote-icon' />
                 </div>
               </div>
-
             </div>
           </div>
         </SwiperSlide>
