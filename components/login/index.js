@@ -185,7 +185,6 @@ const LoginPanel = (props) => {
                         className="sign-email"
                       />
                     </div>
-                    <div className="mt-3 mb-3 p-2 login-form"></div>
                     <div className="mt-3 mb-3 p-2 login-form">
                       <label className="text-muted">enter password </label>
                       <input
@@ -213,9 +212,8 @@ const LoginPanel = (props) => {
                       />
                     </div>
 
-                    <button className="signup-btn" onClick={get_register}>
-                      Get Started
-                    </button>
+                    <input type="buttton" className="signup-btn" onClick={get_register} value='get Started' />
+                      
                   </form>
 
                   <div className="mt-4 mb-3">
