@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import Alert from 'react-bootstrap/Alert';
 
 const LoginPanel = (props) => {
   const [form, Setform] = useState(true);
@@ -12,6 +12,8 @@ const LoginPanel = (props) => {
   const [username, Setfullname] = useState("himanshu");
   const [phoneno, Setphoneno] = useState("7651974806");
   const [password_confirm, Setcpassword] = useState("12345raja");
+
+  
 
   const handleClose = () => {
     let ans = document.getElementsByClassName("login-container")[0];
@@ -45,21 +47,12 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
-      Swal.fire({
-        icon: 'success',
-        text: response,
-      });
     } catch (err) {
       setError(err.message);
-      Swal.fire({
-        icon: 'failure',
-        text: error,
-      });
     }
   };
 
   const get_register = async () => {
-    
     try {
       const res = await fetch(
         "https://dish.najmainternational.com/api/register",
@@ -73,22 +66,14 @@ const LoginPanel = (props) => {
             password,
             email,
             phoneno,
-            password_confirm
+            password_confirm,
           }),
         }
       );
       const data = await res.json();
       setResponse(data.message);
-      Swal.fire({
-        icon: 'success',
-        text: response,
-      });
     } catch (err) {
       setError(err.message);
-      Swal.fire({
-        icon: 'failure',
-        text: error,
-      });
     }
   };
 
@@ -101,6 +86,16 @@ const LoginPanel = (props) => {
           </div>
           <div className="col-lg-4">
             <div className="sign-right p-5">
+            {response && (
+                <Alert variant="success" onClose={() => setResponse(null)} dismissible>
+                  {response}
+                </Alert>
+              )}
+              {error && (
+                <Alert variant="danger" onClose={() => setError(null)} dismissible>
+                  {error}
+                </Alert>
+              )}
               <div className="cross-icon text-end">
                 <button onClick={handleClose}>
                   <img src="../../images/icon/cross-icon.png" alt="Close" />
@@ -138,11 +133,6 @@ const LoginPanel = (props) => {
                       className="sign-btn"
                       onClick={get_login}
                     ></input>
-                    {/* <h3 style={{ color: "green" }}></h3>
-                    {response && (
-                      <div>Response: {JSON.stringify(response)}</div>
-                    )}
-                    {error && <div>Error: {error}</div>} */}
                   </form>
 
                   <div className="mt-4 mb-3">
@@ -162,7 +152,7 @@ const LoginPanel = (props) => {
                 ""
               ) : (
                 <div className="signup-box">
-                  <h5 className="heading mt-3 mb-3">
+                  <h5 className="heading">
                     Sigup in to your account
                   </h5>
                   <p className="mt-3 mb-3">
@@ -232,18 +222,14 @@ const LoginPanel = (props) => {
                         className="sign-email"
                       />
                     </div>
-                    {/* <h5 className="text-success">
-                    {response && (
-                      <div> {JSON.stringify(response.message)}</div>
-                    )}
-                    </h5>
-                    <h5 className="text-danger">
-                    {error && <div>Error: {error}</div>}
-                    </h5> */}
-                    
-                    <input type="button" className="signup-btn" onClick={get_register} value='get Started' />
+
+                    <input
+                      type="button"
+                      className="signup-btn"
+                      onClick={get_register}
+                      value="get Started"
+                    />
                   </form>
-                  
 
                   <div className="mt-4 mb-3">
                     <p>
@@ -255,6 +241,12 @@ const LoginPanel = (props) => {
                   </div>
                 </div>
               )}
+              <h5 className="text-success">
+                {response && <div> {JSON.stringify(response.message)}</div>}
+              </h5>
+              <h5 className="text-danger">
+                {error && <div>Error: {error}</div>}
+              </h5>
             </div>
           </div>
         </div>
