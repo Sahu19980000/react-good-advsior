@@ -41,12 +41,11 @@ const LoginPanel = (props) => {
           body: JSON.stringify({
             email,
             password,
-          }),
+          })
         }
       );
       const data = await res.json();
       setResponse(data.message);
-      setResponse(data.error);
       
     } catch (err) {
       setError(err.message);
@@ -60,19 +59,27 @@ const LoginPanel = (props) => {
         {
           method: "POST",
           headers: {
+            Accept: "application/json",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username,
-            password,
             email,
+            password,
+            username,
             phoneno,
             password_confirm,
           }),
         }
       );
+
+      // if (!res.ok) {
+      //   throw new Error(
+      //     HTTP error! status: ${res.status} - ${res.statusText}
+      //   );
+      // }
+
       const data = await res.json();
-      setResponse(data.message);
+      setResponse(data);
     } catch (err) {
       setError(err.message);
     }
@@ -90,7 +97,6 @@ const LoginPanel = (props) => {
             {response && (
                 <Alert variant="success" onClose={() => setResponse(null)} dismissible>
                   {response}
-                  <Link to="/" />
                 </Alert>
             )}
             {error && (
@@ -249,12 +255,7 @@ const LoginPanel = (props) => {
                   </div>
                 </div>
               )}
-              <h5 className="text-success">
-                {response && <div> {JSON.stringify(response.message)}</div>}
-              </h5>
-              <h5 className="text-danger">
-                {error && <div>Error: {error}</div>}
-              </h5>
+             
             </div>
           </div>
         </div>
