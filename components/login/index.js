@@ -6,13 +6,13 @@ import Alert from 'react-bootstrap/Alert';
 
 const LoginPanel = (props) => {
   const [form, Setform] = useState(true);
-  const [email, setEmail] = useState("user@gmail.com"); // Default username
-  const [password, setPassword] = useState("12345raja"); // Default password
+  const [email, setEmail] = useState(""); // Default username
+  const [password, setPassword] = useState(""); // Default password
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
-  const [username, Setfullname] = useState("himanshu");
-  const [phoneno, Setphoneno] = useState("7651974806");
-  const [password_confirm, Setcpassword] = useState("12345raja");
+  const [username, Setfullname] = useState("");
+  const [phoneno, Setphoneno] = useState("");
+  const [password_confirm, Setcpassword] = useState("");
 
   const handleClose = () => {
     let ans = document.getElementsByClassName("login-container")[0];
@@ -117,6 +117,9 @@ const LoginPanel = (props) => {
                         type="text"
                         placeholder="example@gmail.com"
                         className="sign-email"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
                         value={email}
                       />
                     </div>
@@ -126,6 +129,9 @@ const LoginPanel = (props) => {
                         type="text"
                         placeholder="example:1234"
                         className="sign-password"
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
                         value={password}
                       />
                     </div>
