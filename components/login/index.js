@@ -44,8 +44,16 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
+      Swal.fire({
+        icon: 'success',
+        text: response,
+      });
     } catch (err) {
       setError(err.message);
+      Swal.fire({
+        icon: 'failure',
+        text: error,
+      });
     }
   };
 
@@ -70,8 +78,16 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
+      Swal.fire({
+        icon: 'success',
+        text: response,
+      });
     } catch (err) {
       setError(err.message);
+      Swal.fire({
+        icon: 'failure',
+        text: error,
+      });
     }
   };
 
@@ -121,11 +137,11 @@ const LoginPanel = (props) => {
                       className="sign-btn"
                       onClick={get_login}
                     ></input>
-                    <h3 style={{ color: "green" }}></h3>
+                    {/* <h3 style={{ color: "green" }}></h3>
                     {response && (
                       <div>Response: {JSON.stringify(response)}</div>
                     )}
-                    {error && <div>Error: {error}</div>}
+                    {error && <div>Error: {error}</div>} */}
                   </form>
 
                   <div className="mt-4 mb-3">
@@ -215,12 +231,18 @@ const LoginPanel = (props) => {
                         className="sign-email"
                       />
                     </div>
-                    <input type="button" className="signup-btn" onClick={get_register} value='get Started' />
-                  </form>
-                  {response && (
+                    {/* <h5 className="text-success">
+                    {response && (
                       <div> {JSON.stringify(response.message)}</div>
                     )}
+                    </h5>
+                    <h5 className="text-danger">
                     {error && <div>Error: {error}</div>}
+                    </h5> */}
+                    
+                    <input type="button" className="signup-btn" onClick={get_register} value='get Started' />
+                  </form>
+                  
 
                   <div className="mt-4 mb-3">
                     <p>
