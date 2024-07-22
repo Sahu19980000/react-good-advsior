@@ -46,6 +46,7 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
+      setResponse(data.error);
       
     } catch (err) {
       setError(err.message);
