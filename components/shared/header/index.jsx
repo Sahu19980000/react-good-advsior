@@ -1,6 +1,6 @@
 "use client";
 import Login_panel from '@/components/login';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Megamenu from './megamenu';
 import { Buttoncomponent } from '@/components/button';
 import Link from 'next/link';
@@ -8,6 +8,7 @@ import Link from 'next/link';
 const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
+  const[username,Setusername] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -19,6 +20,21 @@ const HeaderFile = () => {
         console.log(ans);
         ans.style.display="block";
   };
+
+  useEffect(() => {
+    const fetchUsername = async () => {
+      try {
+        const response = await fetch('https://dish.najmainternational.com/api/user/user');
+        const data = await response.json();
+        Setusername(data.username);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUsername();
+  }, []);
 
   return (
     <header className='good-advsior-header-section'>
@@ -63,7 +79,8 @@ const HeaderFile = () => {
                       <a className="nav-link">Others</a>
                     </li>
                     <li className="nav-item" onClick={handleLoginClick}>
-                    <Buttoncomponent title_data="Login" />
+                      
+                    {username ? username : <Buttoncomponent title_data="Login" />}
                     </li>
                   
                   </ul>

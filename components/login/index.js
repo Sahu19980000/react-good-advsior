@@ -13,8 +13,6 @@ const LoginPanel = (props) => {
   const [phoneno, Setphoneno] = useState("7651974806");
   const [password_confirm, Setcpassword] = useState("12345raja");
 
-  
-
   const handleClose = () => {
     let ans = document.getElementsByClassName("login-container")[0];
 
