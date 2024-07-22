@@ -46,7 +46,7 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
-      <Link to="/" />
+      
     } catch (err) {
       setError(err.message);
     }
@@ -89,13 +89,14 @@ const LoginPanel = (props) => {
             {response && (
                 <Alert variant="success" onClose={() => setResponse(null)} dismissible>
                   {response}
+                  <Link to="/" />
                 </Alert>
-              )}
-              {error && (
+            )}
+            {error && (
                 <Alert variant="danger" onClose={() => setError(null)} dismissible>
                   {error}
                 </Alert>
-              )}
+            )}
               <div className="cross-icon text-end">
                 <button onClick={handleClose}>
                   <img src="../../images/icon/cross-icon.png" alt="Close" />
