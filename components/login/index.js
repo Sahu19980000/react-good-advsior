@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Link from "next/link";
 import React, { useState } from "react";
 import Alert from 'react-bootstrap/Alert';
 
@@ -45,6 +46,7 @@ const LoginPanel = (props) => {
       );
       const data = await res.json();
       setResponse(data.message);
+      <Link to="/" />
     } catch (err) {
       setError(err.message);
     }
