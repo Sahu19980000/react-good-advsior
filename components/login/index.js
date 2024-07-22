@@ -50,6 +50,7 @@ const LoginPanel = (props) => {
   };
 
   const get_register = async () => {
+    
     try {
       const res = await fetch(
         "https://dish.najmainternational.com/api/register",
@@ -59,8 +60,11 @@ const LoginPanel = (props) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email,
+            username,
             password,
+            email,
+            phoneno,
+            password_confirm
           }),
         }
       );
@@ -211,10 +215,12 @@ const LoginPanel = (props) => {
                         className="sign-email"
                       />
                     </div>
-
                     <input type="buttton" className="signup-btn" onClick={get_register} value='get Started' />
-                      
                   </form>
+                  {response && (
+                      <div> {JSON.stringify(response.message)}</div>
+                    )}
+                    {error && <div>Error: {error}</div>}
 
                   <div className="mt-4 mb-3">
                     <p>
