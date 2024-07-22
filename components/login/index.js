@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const LoginPanel = (props) => {
   const [form, Setform] = useState(true);
