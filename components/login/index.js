@@ -215,7 +215,7 @@ const LoginPanel = (props) => {
                         className="sign-email"
                       />
                     </div>
-                    <input type="buttton" className="signup-btn" onClick={get_register} value='get Started' />
+                    <input type="button" className="signup-btn" onClick={get_register} value='get Started' />
                   </form>
                   {response && (
                       <div> {JSON.stringify(response.message)}</div>
