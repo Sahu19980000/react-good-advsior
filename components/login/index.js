@@ -22,7 +22,7 @@ const LoginPanel = (props) => {
     let ans = document.getElementsByClassName("login-container")[0];
     console.log(ans);
     ans.style.display = "none";
-    router.push('/company-registration')
+    router.push('/')
   };
 
   const show_form = (data) => {
