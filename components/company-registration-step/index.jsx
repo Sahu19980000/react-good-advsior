@@ -21,14 +21,21 @@ const Company_registration_step = () => {
     const fetchUsername = async () => {
       try {
         const response = await fetch('https://dish.najmainternational.com/api/user/user');
-        const data = await response.json();
-        Setusername(data.username);
-        console.log('username',data);
+        const text = await response.text(); // Get the response as text
+        console.log('Response text:', text);
+  
+        try {
+          const data = JSON.parse(text); // Parse the text as JSON
+          Setusername(data.username);
+          console.log('username', data);
+        } catch (jsonError) {
+          console.error('Error parsing JSON:', jsonError);
+        }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-
+  
     fetchUsername();
   }, []);
 
