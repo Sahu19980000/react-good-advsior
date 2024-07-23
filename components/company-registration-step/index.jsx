@@ -14,6 +14,7 @@ export const ThemeContext = createContext(33);
 const Company_registration_step = () => {
 
   const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
   const [step, setStep] = useState(0);
   const [width, setWidth] = useState(33);
 
