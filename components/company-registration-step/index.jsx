@@ -22,7 +22,7 @@ const Company_registration_step = () => {
     const fetchUsername = async () => {
       try {
         const res = await fetch(
-          "https://dish.najmainternational.com/api/user/user",
+          "https://dish.najmainternational.com/api/user/user/",
           {
             method: "GET",
             headers: {
