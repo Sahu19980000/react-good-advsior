@@ -7,9 +7,9 @@ const PlanCard = ({ plan }) => {
     <div className="plan ">
       <h4 style={{color:"#264067"}} >{plan.title}</h4>
       <h1 className="price font-bold" style={{color:"#264067"}} >{plan.price}</h1>
-      <div className="description">{plan.description}</div>
-      <FeaturesList features={plan.features} />
-      <Link href="/company-registration">{plan.link_text}</Link>
+      {/* <div className="description">{plan.description}</div> */}
+      <FeaturesList features={plan.getplanitems} />
+      <Link href="/company-registration">Know More</Link>
     </div>
   );
 };

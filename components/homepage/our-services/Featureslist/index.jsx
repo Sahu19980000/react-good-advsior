@@ -7,7 +7,7 @@ const FeaturesList = ({ features }) => {
       {features.map((feature, idx) => (
         <li key={idx}>
           <Image src='/images/arrow-icon.png' className='p-3' alt="arrow-icon" width={40} height={40}/>
-          {feature}</li>
+          {feature.description}</li>
       ))}
     </ul>
   );

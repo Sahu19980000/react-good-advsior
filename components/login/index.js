@@ -47,7 +47,6 @@ const LoginPanel = (props) => {
             password,
           }),
         }
-
       );
 
       if (!res.ok) {
@@ -57,8 +56,11 @@ const LoginPanel = (props) => {
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
       console.log(response);
-      // router.push('/');
-      handleClose();
+      
+      setInterval(() => {
+        router.push('/');
+      }, 3000);
+      
     } catch (err) {
       setError(err.message);
     }

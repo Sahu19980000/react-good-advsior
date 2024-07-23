@@ -5,6 +5,7 @@ import Megamenu from './megamenu';
 import { Buttoncomponent } from '@/components/button';
 import Link from 'next/link';
 
+
 const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
@@ -27,7 +28,7 @@ const HeaderFile = () => {
         const response = await fetch('https://dish.najmainternational.com/api/user/user');
         const data = await response.json();
         Setusername(data.username);
-        console.log(data);
+        console.log('username',data);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }

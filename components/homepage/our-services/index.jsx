@@ -2,6 +2,7 @@ import React from 'react'
 import PlanCard from './plancard'
 import PricingTable from './pricingtable/Pricingtable'
 import Subheading from '@/components/all-shared/sub-heading'
+import Placeholder from 'react-bootstrap/Placeholder';
 
 const Our_services = () => {
   return (
