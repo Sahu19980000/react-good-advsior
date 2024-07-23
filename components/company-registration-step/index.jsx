@@ -20,19 +20,36 @@ const Company_registration_step = () => {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const response = await fetch('https://dish.najmainternational.com/api/user/user');
-        const text = await response.text(); // Get the response as text
-        console.log('Response text:', text);
+        const res = await fetch(
+          "https://dish.najmainternational.com/api/user/user",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            //body: JSON.stringify({
+            //email,
+            //password,
+            // username,
+            // phoneno,
+            // password_confirm,
+            //}),
+          }
+        );
   
-        try {
-          const data = JSON.parse(text); // Parse the text as JSON
-          Setusername(data.username);
-          console.log('username', data);
-        } catch (jsonError) {
-          console.error('Error parsing JSON:', jsonError);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+        // if (!res.ok) {
+        //   throw new Error(
+        //     HTTP error! status: ${res.status} - ${res.statusText}
+        //   );
+        // }
+  
+        const data = await res.json();
+        Setusername(data);
+        console.log(username);
+
+      } catch (err) {
+        setError(err.message);
       }
     };
   
