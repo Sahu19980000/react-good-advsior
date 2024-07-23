@@ -1,5 +1,5 @@
 "use client"
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Formone from './form-one';
 import Formtwo from './form-two';
 import Formthree from './form-three';
@@ -13,8 +13,24 @@ export const ThemeContext = createContext(33);
 
 const Company_registration_step = () => {
 
+  const[username,Setusername] = useState(null);
   const [step, setStep] = useState(0);
   const [width, setWidth] = useState(33);
+
+  useEffect(() => {
+    const fetchUsername = async () => {
+      try {
+        const response = await fetch('https://dish.najmainternational.com/api/user/user');
+        const data = await response.json();
+        Setusername(data.username);
+        console.log('username',data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUsername();
+  }, []);
 
   const[formdata,setformdata] = useState({
       "entity" :"solar propership",
