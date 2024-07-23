@@ -19,10 +19,11 @@ const LoginPanel = (props) => {
   const [loginstatus,Setstatus] = useState(0);
 
   const handleClose = () => {
+    router.push('/company-registration')
     let ans = document.getElementsByClassName("login-container")[0];
     console.log(ans);
     ans.style.display = "none";
-    router.push('/')
+    
   };
 
   const show_form = (data) => {
