@@ -22,6 +22,7 @@ const LoginPanel = (props) => {
     let ans = document.getElementsByClassName("login-container")[0];
     console.log(ans);
     ans.style.display = "none";
+    router.push('/company-registration')
   };
 
   const show_form = (data) => {
@@ -56,10 +57,11 @@ const LoginPanel = (props) => {
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
       console.log(response);
+      router.push('/');
       
-      setInterval(() => {
-        router.push('/');
-      }, 3000);
+      // setInterval(() => {
+      //   router.push('/');
+      // }, 3000);
       
     } catch (err) {
       setError(err.message);
