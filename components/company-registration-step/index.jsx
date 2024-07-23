@@ -13,7 +13,7 @@ export const ThemeContext = createContext(33);
 
 const Company_registration_step = () => {
 
-  const[username,Setusername] = useState(null);
+  const [response, setResponse] = useState(null);
   const [step, setStep] = useState(0);
   const [width, setWidth] = useState(33);
 
@@ -37,22 +37,21 @@ const Company_registration_step = () => {
             //}),
           }
         );
-  
+
         // if (!res.ok) {
         //   throw new Error(
         //     HTTP error! status: ${res.status} - ${res.statusText}
         //   );
         // }
-  
-        const data = await res.json();
-        Setusername(data);
-        console.log(username);
 
+        const data = await res.json();
+        setResponse(data);
+        console.log(data);
       } catch (err) {
         setError(err.message);
       }
     };
-  
+
     fetchUsername();
   }, []);
 
@@ -105,6 +104,8 @@ const Company_registration_step = () => {
         <div className='container-fluid'>
           <div className="row">
             <div className="col-lg-4 col-12">
+            {response && <div>Response: {JSON.stringify(response)}</div>}
+            {error && <div>Error: {error}</div>}
               <Link href="/">
               <Image src='/images/logo.png' alt='good-advsior-logo' width={200} height={50}/><br />
               </Link>
