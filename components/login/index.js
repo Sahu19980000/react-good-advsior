@@ -18,6 +18,7 @@ const LoginPanel = (props) => {
   const[userProfile,SetuserProfile] = useState([]);
 
   const handleClose = () => {
+    handleGetUserDetails();
     router.push('/')
     let ans = document.getElementsByClassName("login-container")[0];
     console.log(ans);
@@ -94,7 +95,7 @@ const LoginPanel = (props) => {
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
       setToken(data.token); // This triggers the useEffect
-      handleGetUserDetails();
+      // handleGetUserDetails();
     } catch (err) {
       setError(err.message);
     }
