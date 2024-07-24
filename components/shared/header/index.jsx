@@ -11,7 +11,7 @@ const HeaderFile = () => {
   const [islogin ,setloginopen] = useState(false);
   const [error ,setError] = useState();
   const[username,Setusername] = useState(null);
- const [token_data,setToken] = useState();
+ const [token_data,setToken] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -27,6 +27,7 @@ const HeaderFile = () => {
   useEffect(() => {
     const token = window.localStorage.getItem('token');
     setToken(token);
+
     const handleGetUserDetails = async () => {
       try {
         const res = await fetch(
@@ -56,7 +57,7 @@ const HeaderFile = () => {
     };
 
     handleGetUserDetails();
-  }, []);
+  }, [token_data]);
 
   return (
     <header className='good-advsior-header-section'>
