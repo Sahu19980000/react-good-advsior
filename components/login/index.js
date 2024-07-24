@@ -17,7 +17,7 @@ const LoginPanel = (props) => {
   const [phoneno, setPhoneno] = useState("7651974806");
   const [password_confirm, Setcpassword] = useState("12345raja");
   const [token, setToken] = useState("");
-  const[userProfile,SetuserProfile] = useState(null);
+  const[userProfile,SetuserProfile] = useState([]);
 
   const handleClose = () => {
     router.push('/')
@@ -71,7 +71,6 @@ const LoginPanel = (props) => {
           setError(err.message);
         }
       }
-
 
   const handleLogin = async () => {
     try {

@@ -5,8 +5,9 @@ import HeaderFile  from './header'
 import Footerfile from './footer'
 
 const Layout = ({children}) => {
+
   const[userProfile,SetuserProfile] = useState(null);
-  const [token_data,setToken] = useState(null);
+  const [token,setToken] = useState(null);
  
    useEffect(() => {
      const token = window.localStorage.getItem('token');
@@ -21,7 +22,7 @@ const Layout = ({children}) => {
              headers: {
                Accept: "application/json",
                "Content-Type": "application/json",
-               Authorization: `Bearer ${token_data}`,
+               Authorization: `Bearer ${token}`,
              },
            }
          );
@@ -42,7 +43,7 @@ const Layout = ({children}) => {
      };
  
      handleGetUserDetails();
-   }, [token_data]);
+   }, [token]);
 
   return (
     <>
