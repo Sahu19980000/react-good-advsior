@@ -1,35 +1,58 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '..';
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "..";
 
-const Formone = () => {
+const Formone = ({ title, quizitems_data }) => {
+  const { formdata, setformdata } = useContext(ThemeContext);
+  const [selectedItem, setSelectedItem] = useState("");
 
-  const {formdata,setformdata} = useContext(ThemeContext);
+  const handleChange = (event) => {
+    setSelectedItem(event.target.value);
+  };
 
-    console.log(formdata);
-    console.log(setformdata);
+  // console.log(formdata);
+  // console.log(setformdata);
+  console.log(quizitems_data);
 
-  const get_value = (ele)=>{
-    setformdata(prevstate =>({
+  const get_value = (ele) => {
+    setformdata((prevstate) => ({
       ...prevstate,
-      entity:ele.target.value
-    }))
+      entity: ele.target.value,
+    }));
     console.log(formdata);
-  }
+  };
 
   return (
     <div className="formone">
-       <h4 className='heading pt-4'>Few Step go</h4>
-       <p className='pt-4'>Please provide some of the information and we will get your work done.</p>
-       <form action="" className='p-2'> 
-       <p>what type of your entity</p>
-       <select onChange={get_value}>
-         <option value="solar" >{formdata.entity}</option>
-         <option value="solar data" >{formdata.entity}</option>
-       </select>
-       </form>
-       
+      <h4 className="heading pt-4">Few Step go</h4>
+      <p className="pt-4">
+        Please provide some of the information and we will get your work done.
+      </p>
+      <form action="" className="p-2">
+        <p>{title}</p>
+        {/* <select onChange={handleChange} value={selectedItem}>
+          <option value="">Select an item</option>
+          {quizitems.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.name}
+            </option>
+          ))}
+        </select>
+        {selectedItem && (
+          <div>
+            <h3>Selected Item Details</h3>
+            <p>
+              ID: {selectedItem} <br />
+              Name:{" "}
+              {
+                quizitems.find((item) => item.id === parseInt(selectedItem))
+                  .name
+              }
+            </p>
+          </div>
+        )} */}
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Formone
+export default Formone;

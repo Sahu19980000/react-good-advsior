@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '..';
 
-const FormTwo = () => {
+const FormTwo = ({title}) => {
 
   const {formdata,setformdata} = useContext(ThemeContext);
   
@@ -21,7 +21,7 @@ const FormTwo = () => {
       <h4 className='heading pt-4'>Few Steps to Go</h4>
       <p className='pt-4'>Please provide some information, and we will get your work done.</p>
       <form action="" className='p-2'>
-        <p>How many employees does your company have?</p>
+        <p>{title}</p>
         <div>
           <input type="radio" id="age1" name="age" value={formdata.employees_details.first} onChange={get_value} />&nbsp;
           <label htmlFor="age1">0 - 30</label><br />

@@ -17,13 +17,13 @@ const Company_registration_step = () => {
   const { id } = useParams();
   console.log(id);
 
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState([]);
   const [error, setError] = useState(null);
   const [step, setStep] = useState(0);
   const [width, setWidth] = useState(33);
 
   useEffect(() => {
-    const fetchUsername = async () => {
+    const Api_Quizdata = async () => {
       try {
         const res = await fetch(
           `https://dish.najmainternational.com/api/getplans/${id}`,
@@ -45,13 +45,13 @@ const Company_registration_step = () => {
 
         const data = await res.json();
         setResponse(data);
-        console.log('get_plan',data);
+        console.log('get_plan',response);
       } catch (err) {
         setError(err.message);
       }
     };
 
-    fetchUsername();
+    Api_Quizdata();
   }, []);
 
   const[formdata,setformdata] = useState({
@@ -114,9 +114,23 @@ const Company_registration_step = () => {
                   <div className="row">
                     <div className="col-lg-12">
                       <Formstep />
-                      {step === 0 && <Formone type=""/>}
+                      {
+                        response.map((ele,index)=>{
+                          return(
+                            step === index && <Formone 
+                            title={ele.question_title_name} 
+                            quizitems_data={ele.quizitems}
+                            />
+                           
+                          )
+                          
+                        }
+                      )
+                      }
+
+                      {/* {step === 0 && <Formone type=""/>}
                       {step === 1 && <Formtwo />}
-                      {step === 2 && <Formthree />}
+                      {step === 2 && <Formthree />} */}
                       <div className='d-flex justify-content-between' style={{ width: "170px" }}>
                         <span onClick={get_nextform}>
                           <Buttoncomponent title_data="Next" />
