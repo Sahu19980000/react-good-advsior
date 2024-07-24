@@ -1,75 +1,65 @@
 "use client";
 
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Alert from "react-bootstrap/Alert";
 import { useRouter } from 'next/navigation'
 
 const LoginPanel = (props) => {
-  const router = useRouter()
-  const [form, Setform] = useState(true);
-  const [email, setEmail] = useState(""); // Default username
-  const [password, setPassword] = useState(""); // Default password
+  const router = useRouter();
+  const [form, setForm] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
-  const [username, setFullname] = useState("himanshu");
-  const [phoneno, setPhoneno] = useState("7651974806");
-  const [password_confirm, Setcpassword] = useState("12345raja");
+  const [username, setUsername] = useState("");
+  const [phoneno, setPhoneno] = useState("");
+  const [password_confirm, setPasswordConfirm] = useState("");
   const [token, setToken] = useState("");
-  const[userProfile,SetuserProfile] = useState([]);
+  const [userProfile, setUserProfile] = useState(null);
 
   const handleClose = () => {
-    handleGetUserDetails();
-    router.push('/')
+    router.push('/');
     let ans = document.getElementsByClassName("login-container")[0];
-    console.log(ans);
     ans.style.display = "none";
-    
   };
 
-  const show_form = (data) => {
-    if (data == "signup") {
-      Setform(false);
-    } else {
-      Setform(true);
-    }
+  const showForm = (data) => {
+    setForm(data === "signup" ? false : true);
   };
 
   useEffect(() => {
     if (token) {
       window.localStorage.setItem('token', token);
-      window.localStorage.setItem('userdata',userProfile)
-      console.log(response);
+      window.localStorage.setItem('userdata', JSON.stringify(userProfile));
     }
-  }, [token, response]);
+  }, [token, userProfile]);
 
-  const handleGetUserDetails = async () => {
-        try {
-          const res = await fetch(
-            "https://dish.najmainternational.com/api/user/details",
-            {
-              method: "GET",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-    
-          if (!res.ok) {
-            throw new Error(
-              `HTTP error! status: ${res.status} - ${res.statusText}`
-            );
-          }
-  
-          const data = await res.json();
-          SetuserProfile(data);
-          
-          console.log("user details", userProfile);
-        } catch (err) {
-          setError(err.message);
+  const handleGetUserDetails = async (token) => {
+    try {
+      const res = await fetch(
+        "https://dish.najmainternational.com/api/user/details",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
+      );
+
+      if (!res.ok) {
+        throw new Error(
+          `HTTP error! status: ${res.status} - ${res.statusText}`
+        );
       }
+
+      const data = await res.json();
+      setUserProfile(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
 
   const handleLogin = async () => {
     try {
@@ -81,10 +71,7 @@ const LoginPanel = (props) => {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
+          body: JSON.stringify({ email, password }),
         }
       );
 
@@ -93,9 +80,9 @@ const LoginPanel = (props) => {
       }
 
       const data = await res.json();
-      setResponse(JSON.stringify(data.message));
-      setToken(data.token); // This triggers the useEffect
-      // handleGetUserDetails();
+      setResponse(data.message);
+      setToken(data.token);
+      await handleGetUserDetails(data.token);
     } catch (err) {
       setError(err.message);
     }
@@ -111,13 +98,7 @@ const LoginPanel = (props) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            email,
-            password,
-            username,
-            phoneno,
-            password_confirm,
-          }),
+          body: JSON.stringify({ email, password, username, phoneno, password_confirm }),
         }
       );
 
@@ -126,8 +107,7 @@ const LoginPanel = (props) => {
       }
 
       const data = await res.json();
-      setResponse(JSON.stringify(data.message));
-      console.log(response);
+      setResponse(data.message);
     } catch (err) {
       setError(err.message);
     }
@@ -142,50 +122,46 @@ const LoginPanel = (props) => {
           </div>
           <div className="col-lg-4">
             <div className="sign-right p-5">
-            {response && (
+              {response && (
                 <Alert variant="success" onClose={() => setResponse(null)} dismissible>
                   {response}
                 </Alert>
-            )}
-            {error && (
+              )}
+              {error && (
                 <Alert variant="danger" onClose={() => setError(null)} dismissible>
                   {error}
                 </Alert>
-            )}
-             <div className="cross-icon text-end">
+              )}
+              <div className="cross-icon text-end">
                 <button onClick={handleClose}>
                   <img src="../../images/icon/cross-icon.png" alt="Close" />
                 </button>
               </div>
-            {form ? (
+              {form ? (
                 <div className="login-box">
                   <h5 className="heading mt-3 mb-3">Sign in to your account</h5>
                   <p className="mt-3 mb-3">
-                    Hey, Enter your details to get sign into your account{" "}
+                    Hey, Enter your details to get sign into your account
                   </p>
 
                   <form>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter email id</label>
+                      <label className="text-muted">Enter email id</label>
                       <input
                         type="text"
                         placeholder="example@gmail.com"
                         className="sign-email"
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
+                        onChange={(e) => setEmail(e.target.value)}
                         value={email}
                       />
                     </div>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter password </label>
+                      <label className="text-muted">Enter password</label>
                       <input
-                        type="text"
+                        type="password"
                         placeholder="example:1234"
                         className="sign-password"
-                        onChange={(e) => {
-                          setPassword(e.target.value);
-                        }}
+                        onChange={(e) => setPassword(e.target.value)}
                         value={password}
                       />
                     </div>
@@ -194,95 +170,74 @@ const LoginPanel = (props) => {
                       value="Get Started"
                       className="sign-btn"
                       onClick={handleLogin}
-                    ></input>
-                    {/* {loginstatus == "1" ? router.push('/'):''} */}
+                    />
                   </form>
 
                   <div className="mt-4 mb-3">
                     <p>
                       Don’t have an account?{" "}
-                      <a href="#" onClick={() => show_form("signup")}>
+                      <a href="#" onClick={() => showForm("signup")}>
                         Sign up now
                       </a>
                     </p>
                   </div>
                 </div>
               ) : (
-                ""
-              )}
-
-              {form ? (
-                ""
-              ) : (
                 <div className="signup-box">
-                  <h5 className="heading">
-                    Sigup in to your account
-                  </h5>
+                  <h5 className="heading">Signup to your account</h5>
                   <p className="mt-3 mb-3">
-                    Hey, Enter your details to get signup into your account{" "}
+                    Hey, Enter your details to get signup into your account
                   </p>
 
                   <form>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter full name </label>
+                      <label className="text-muted">Enter full name</label>
                       <input
                         type="text"
-                        placeholder="enter your name"
+                        placeholder="Enter your name"
                         className="sign-email"
-                        onChange={(e) => {
-                          setFullname(e.target.value);
-                        }}
+                        onChange={(e) => setUsername(e.target.value)}
                         value={username}
                       />
                     </div>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter email id</label>
+                      <label className="text-muted">Enter email id</label>
                       <input
                         type="text"
                         placeholder="example@gmail.com"
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
-                        value={email}
                         className="sign-email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                       />
                     </div>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter phone no </label>
+                      <label className="text-muted">Enter phone no</label>
                       <input
                         type="text"
                         placeholder="example:+91000000"
-                        onChange={(e) => {
-                          setPhoneno(e.target.value);
-                        }}
+                        className="sign-email"
+                        onChange={(e) => setPhoneno(e.target.value)}
                         value={phoneno}
-                        className="sign-email"
                       />
                     </div>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">enter password </label>
+                      <label className="text-muted">Enter password</label>
                       <input
-                        type="text"
+                        type="password"
                         placeholder="example:1234"
-                        onChange={(e) => {
-                          setPassword(e.target.value);
-                        }}
+                        className="sign-email"
+                        onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        className="sign-email"
                       />
                     </div>
                     <div className="mt-3 mb-3 p-2 login-form">
-                      <label className="text-muted">
-                        enter Confirm password{" "}
-                      </label>
+                      <label className="text-muted">Confirm password</label>
                       <input
-                        type="text"
+                        type="password"
                         placeholder="example:1234"
-                        onChange={(e) => {
-                          Setcpassword(e.target.value);
-                        }}
-                        value={password_confirm}
                         className="sign-email"
+                        onChange={(e) => setPasswordConfirm(e.target.value)}
+                        value={password_confirm}
                       />
                     </div>
 
@@ -290,69 +245,23 @@ const LoginPanel = (props) => {
                       type="button"
                       className="signup-btn"
                       onClick={handleRegister}
-                      value="get Started"
+                      value="Get Started"
                     />
                   </form>
 
                   <div className="mt-4 mb-3">
                     <p>
-                      please{" "}
-                      <a href="#" onClick={() => show_form("login")}>
+                      Please{" "}
+                      <a href="#" onClick={() => showForm("login")}>
                         login now
                       </a>
                     </p>
                   </div>
                 </div>
               )}
-              
             </div>
           </div>
         </div>
-        {/* <div className="mt-3 mb-3 p-2 login-form">
-          <label className="text-muted">Enter full name</label>
-          <input
-            type="text"
-            placeholder="Enter your name"
-            className="sign-email"
-            onChange={(e) => setFullname(e.target.value)}
-            value={username}
-          />
-        </div>
-        <div className="mt-3 mb-3 p-2 login-form">
-          <label className="text-muted">Enter phone no</label>
-          <input
-            type="text"
-            placeholder="example:+91000000"
-            onChange={(e) => setPhoneno(e.target.value)}
-            value={phoneno}
-            className="sign-email"
-          />
-        </div>
-        <div className="mt-3 mb-3 p-2 login-form">
-          <label className="text-muted">Enter password</label>
-          <input
-            type="text"
-            placeholder="example:1234"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            className="sign-email"
-          />
-        </div>
-        <div className="mt-3 mb-3 p-2 login-form">
-          <label className="text-muted">Confirm password</label>
-          <input
-            type="text"
-            placeholder="example:1234"
-            onChange={(e) => setCpassword(e.target.value)}
-            value={passwordConfirm}
-            className="sign-email"
-          />
-        </div>
-        <input type="button" onClick={handleLogin} value="Submit" />
-        <h1>Hello Vite + React</h1>
-        <h2>Start editing to see some magic happen!</h2>
-        {response && <div>Response: {JSON.stringify(response)}</div>}
-        {error && <div>Error: {error}</div>} */}
       </div>
     </div>
   );
