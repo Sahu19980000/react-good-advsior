@@ -13,6 +13,7 @@ const HeaderFile = ({userProfile}) => {
   const[username,Setusername] = useState(null);
 
  console.log('header userprofile',userProfile);
+ Setusername(userProfile.username)
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -104,7 +105,7 @@ const HeaderFile = ({userProfile}) => {
                     </li>
                     <li className="nav-item" onClick={handleLoginClick}>
                       
-                    {username ? username : <Buttoncomponent title_data="Login" />}
+                    {username != null ? username : <Buttoncomponent title_data="Login" />}
                     </li>
                   
                   </ul>
