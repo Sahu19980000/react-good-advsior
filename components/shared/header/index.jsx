@@ -5,12 +5,13 @@ import Megamenu from './megamenu';
 import { Buttoncomponent } from '@/components/button';
 import Link from 'next/link';
 
-const HeaderFile = ({ userProfile }) => {
+const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin, setloginopen] = useState(false);
   const [username, Setusername] = useState(null);
 
   useEffect(() => {
+    
     const userprofile = window.localStorage.getItem('userdata');
     if (userprofile) {
       const user = JSON.parse(userprofile);
@@ -20,7 +21,7 @@ const HeaderFile = ({ userProfile }) => {
       console.log('No user data found in localStorage');
     }
 
-  }, [userProfile]);
+  }, [userprofile]);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);

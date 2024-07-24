@@ -103,8 +103,8 @@ const Company_registration_step = () => {
         <div className='container-fluid'>
           <div className="row">
             <div className="col-lg-4 col-12">
-            {response && <div>Response: {JSON.stringify(response)}</div>}
-            {error && <div>Error: {error}</div>}
+            {/* {response && <div>Response: {JSON.stringify(response)}</div>}
+            {error && <div>Error: {error}</div>} */}
               <Link href="/">
               <Image src='/images/logo.png' alt='good-advsior-logo' width={200} height={50}/><br />
               </Link>
