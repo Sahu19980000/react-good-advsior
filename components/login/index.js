@@ -17,6 +17,7 @@ const LoginPanel = (props) => {
   const [phoneno, setPhoneno] = useState("7651974806");
   const [password_confirm, Setcpassword] = useState("12345raja");
   const [token, setToken] = useState("");
+  const[userProfile,SetuserProfile] = useState(null);
 
   const handleClose = () => {
     router.push('/')
@@ -37,9 +38,40 @@ const LoginPanel = (props) => {
   useEffect(() => {
     if (token) {
       window.localStorage.setItem('token', token);
+      window.localStorage.setItem('userdata',userProfile)
       console.log(response);
     }
   }, [token, response]);
+
+  const handleGetUserDetails = async () => {
+        try {
+          const res = await fetch(
+            "https://dish.najmainternational.com/api/user/details",
+            {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token_data}`,
+              },
+            }
+          );
+    
+          if (!res.ok) {
+            throw new Error(
+              `HTTP error! status: ${res.status} - ${res.statusText}`
+            );
+          }
+  
+          const data = await res.json();
+          SetuserProfile(data);
+          
+          console.log("user details", userProfile);
+        } catch (err) {
+          setError(err.message);
+        }
+      }
+
 
   const handleLogin = async () => {
     try {
@@ -65,6 +97,7 @@ const LoginPanel = (props) => {
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
       setToken(data.token); // This triggers the useEffect
+      handleGetUserDetails();
     } catch (err) {
       setError(err.message);
     }
