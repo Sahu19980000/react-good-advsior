@@ -1,7 +1,5 @@
 "use client";
-import { faBox } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import Link from "next/link";
+
 import React, { useState,useEffect } from "react";
 import Alert from "react-bootstrap/Alert";
 import { useRouter } from 'next/navigation'
@@ -9,8 +7,8 @@ import { useRouter } from 'next/navigation'
 const LoginPanel = (props) => {
   const router = useRouter()
   const [form, Setform] = useState(true);
-  const [email, setEmail] = useState("rohit@gmail.com"); // Default username
-  const [password, setPassword] = useState("rohit@1234"); // Default password
+  const [email, setEmail] = useState(""); // Default username
+  const [password, setPassword] = useState(""); // Default password
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [username, setFullname] = useState("himanshu");
@@ -52,7 +50,7 @@ const LoginPanel = (props) => {
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token_data}`,
+                Authorization: `Bearer ${token}`,
               },
             }
           );
