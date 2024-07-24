@@ -9,8 +9,9 @@ import Link from 'next/link';
 const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
+  const [error ,setError] = useState();
   const[username,Setusername] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = window.localStorage.getItem("token");
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
