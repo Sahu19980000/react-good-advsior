@@ -13,7 +13,8 @@ const HeaderFile = ({userProfile}) => {
   const[username,Setusername] = useState(null);
 
  console.log('header userprofile',userProfile);
- Setusername(userProfile.username)
+ Setusername(userProfile)
+ console.log(username.username);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -25,41 +26,6 @@ const HeaderFile = ({userProfile}) => {
         console.log(ans);
         ans.style.display="block";
   };
-
-  // useEffect(() => {
-  //   const token = window.localStorage.getItem('token');
-  //   setToken(token);
-
-  //   const handleGetUserDetails = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         "https://dish.najmainternational.com/api/user/details",
-  //         {
-  //           method: "GET",
-  //           headers: {
-  //             Accept: "application/json",
-  //             "Content-Type": "application/json",
-  //             Authorization: `Bearer ${token_data}`,
-  //           },
-  //         }
-  //       );
-  
-  //       if (!res.ok) {
-  //         throw new Error(
-  //           `HTTP error! status: ${res.status} - ${res.statusText}`
-  //         );
-  //       }
-
-  //       const data = await res.json();
-  //       SetuserProfile(data);
-  //       console.log("user details", userProfile);
-  //     } catch (err) {
-  //       setError(err.message);
-  //     }
-  //   };
-
-  //   handleGetUserDetails();
-  // }, [token_data]);
 
   return (
     <header className='good-advsior-header-section'>
