@@ -6,12 +6,14 @@ import { Buttoncomponent } from '@/components/button';
 import Link from 'next/link';
 
 
-const HeaderFile = () => {
+const HeaderFile = ({userProfile}) => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
   const [error ,setError] = useState();
-  const[userProfile,SetuserProfile] = useState(null);
+  const[username,Setusername] = useState(null);
  const [token_data,setToken] = useState(null);
+
+ console.log(userProfile);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -24,40 +26,40 @@ const HeaderFile = () => {
         ans.style.display="block";
   };
 
-  useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    setToken(token);
+  // useEffect(() => {
+  //   const token = window.localStorage.getItem('token');
+  //   setToken(token);
 
-    const handleGetUserDetails = async () => {
-      try {
-        const res = await fetch(
-          "https://dish.najmainternational.com/api/user/details",
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token_data}`,
-            },
-          }
-        );
+  //   const handleGetUserDetails = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         "https://dish.najmainternational.com/api/user/details",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             Accept: "application/json",
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${token_data}`,
+  //           },
+  //         }
+  //       );
   
-        if (!res.ok) {
-          throw new Error(
-            `HTTP error! status: ${res.status} - ${res.statusText}`
-          );
-        }
-        
-        const data = await res.json();
-        SetuserProfile(data);
-        console.log("user details", userProfile);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+  //       if (!res.ok) {
+  //         throw new Error(
+  //           `HTTP error! status: ${res.status} - ${res.statusText}`
+  //         );
+  //       }
 
-    handleGetUserDetails();
-  }, [token_data]);
+  //       const data = await res.json();
+  //       SetuserProfile(data);
+  //       console.log("user details", userProfile);
+  //     } catch (err) {
+  //       setError(err.message);
+  //     }
+  //   };
+
+  //   handleGetUserDetails();
+  // }, [token_data]);
 
   return (
     <header className='good-advsior-header-section'>
