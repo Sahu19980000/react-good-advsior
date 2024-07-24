@@ -58,6 +58,7 @@ const LoginPanel = (props) => {
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
       console.log(response);
+      localStorage.setItem('username',username);
       router.push('/');
       
       // setInterval(() => {
