@@ -13,10 +13,13 @@ const HeaderFile = ({ userProfile }) => {
   useEffect(() => {
     const userprofile = window.localStorage.getItem('userdata');
     if (userprofile) {
-
-      Setusername(userProfile.username);
+      const user = JSON.parse(userprofile);
+      Setusername(user.username);
     }
-    console.log('user name',userprofile);
+    else {
+      console.log('No user data found in localStorage');
+    }
+
   }, [userProfile]);
 
   const toggleMenu = () => {
