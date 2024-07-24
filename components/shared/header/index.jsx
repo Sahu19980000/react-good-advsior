@@ -10,7 +10,7 @@ const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
   const [error ,setError] = useState();
-  const[username,Setusername] = useState(null);
+  const[userProfile,SetuserProfile] = useState(null);
  const [token_data,setToken] = useState(null);
 
   const toggleMenu = () => {
@@ -47,10 +47,10 @@ const HeaderFile = () => {
             `HTTP error! status: ${res.status} - ${res.statusText}`
           );
         }
-  
+        
         const data = await res.json();
-        setUserdata(data);
-        console.log("user details", data);
+        SetuserProfile(data);
+        console.log("user details", userProfile);
       } catch (err) {
         setError(err.message);
       }
