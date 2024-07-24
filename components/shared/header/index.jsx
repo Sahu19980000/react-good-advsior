@@ -9,10 +9,11 @@ const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin, setloginopen] = useState(false);
   const [username, Setusername] = useState(null);
+  const [userprofile,Setprofilename] = useState();
 
   useEffect(() => {
-    
-    const userprofile = window.localStorage.getItem('userdata');
+
+    Setprofilename(window.localStorage.getItem('userdata'));
     if (userprofile) {
       const user = JSON.parse(userprofile);
       Setusername(user.username);
