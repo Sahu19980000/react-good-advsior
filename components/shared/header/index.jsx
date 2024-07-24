@@ -11,9 +11,12 @@ const HeaderFile = ({ userProfile }) => {
   const [username, Setusername] = useState(null);
 
   useEffect(() => {
-    if (userProfile) {
+    const userprofile = window.localStorage.getItem('userdata');
+    if (userprofile) {
+
       Setusername(userProfile.username);
     }
+    console.log('user name',userprofile);
   }, [userProfile]);
 
   const toggleMenu = () => {
