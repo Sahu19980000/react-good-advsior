@@ -2,7 +2,7 @@
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Alert from "react-bootstrap/Alert";
 import { useRouter } from 'next/navigation'
 
@@ -34,16 +34,22 @@ const LoginPanel = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (token) {
+      window.localStorage.setItem('token', token);
+      console.log(response);
+    }
+  }, [token, response]);
+
   const handleLogin = async () => {
     try {
       const res = await fetch(
-        "https://dish.najmainternational.com/api/user/login",
+        'https://dish.najmainternational.com/api/user/login',
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             email,
@@ -58,10 +64,7 @@ const LoginPanel = (props) => {
 
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
-      setToken(data.token)
-      localStorage.setItem('token',token)
-      console.log(response);
-      
+      setToken(data.token); // This triggers the useEffect
     } catch (err) {
       setError(err.message);
     }

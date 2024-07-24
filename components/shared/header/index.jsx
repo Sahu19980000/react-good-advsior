@@ -11,7 +11,7 @@ const HeaderFile = () => {
   const [islogin ,setloginopen] = useState(false);
   const [error ,setError] = useState();
   const[username,Setusername] = useState(null);
-  const token = window.localStorage.getItem("token");
+ const [token_data,setToken] = useState();
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -25,6 +25,8 @@ const HeaderFile = () => {
   };
 
   useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    setToken(token);
     const handleGetUserDetails = async () => {
       try {
         const res = await fetch(
@@ -34,7 +36,7 @@ const HeaderFile = () => {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${token_data}`,
             },
           }
         );
