@@ -10,6 +10,7 @@ const HeaderFile = () => {
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [islogin ,setloginopen] = useState(false);
   const[username,Setusername] = useState(null);
+  const token = localStorage.getItem("token");
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -23,18 +24,35 @@ const HeaderFile = () => {
   };
 
   useEffect(() => {
-    const fetchUsername = async () => {
+    const handleGetUserDetails = async () => {
       try {
-        const response = await fetch('https://dish.najmainternational.com/api/user/user');
-        const data = await response.json();
-        Setusername(data.username);
-        console.log('username',data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+        const res = await fetch(
+          "https://dish.najmainternational.com/api/user/details",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+  
+        if (!res.ok) {
+          throw new Error(
+            `HTTP error! status: ${res.status} - ${res.statusText}`
+          );
+        }
+  
+        const data = await res.json();
+        setUserdata(data);
+        console.log("user details", data);
+      } catch (err) {
+        setError(err.message);
       }
     };
 
-    fetchUsername();
+    handleGetUserDetails();
   }, []);
 
   return (

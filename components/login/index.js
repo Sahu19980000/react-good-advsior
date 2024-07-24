@@ -16,10 +16,10 @@ const LoginPanel = (props) => {
   const [username, setFullname] = useState("himanshu");
   const [phoneno, setPhoneno] = useState("7651974806");
   const [password_confirm, Setcpassword] = useState("12345raja");
-  const [loginstatus,Setstatus] = useState(0);
+  const [token, setToken] = useState("");
 
   const handleClose = () => {
-    router.push('/company-registration')
+    router.push('/')
     let ans = document.getElementsByClassName("login-container")[0];
     console.log(ans);
     ans.style.display = "none";
@@ -43,6 +43,7 @@ const LoginPanel = (props) => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             email,
@@ -57,13 +58,9 @@ const LoginPanel = (props) => {
 
       const data = await res.json();
       setResponse(JSON.stringify(data.message));
+      setToken(data.token)
+      localStorage.setItem('token',token)
       console.log(response);
-      localStorage.setItem('username',username);
-      router.push('/');
-      
-      // setInterval(() => {
-      //   router.push('/');
-      // }, 3000);
       
     } catch (err) {
       setError(err.message);

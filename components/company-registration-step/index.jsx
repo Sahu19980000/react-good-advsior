@@ -8,10 +8,14 @@ import Certificate from './certificate-desc';
 import Link from 'next/link';
 import { Buttoncomponent } from '../button';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 export const ThemeContext = createContext(33);
 
 const Company_registration_step = () => {
+
+  const { id } = useParams();
+  console.log(id);
 
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -22,20 +26,14 @@ const Company_registration_step = () => {
     const fetchUsername = async () => {
       try {
         const res = await fetch(
-          "https://dish.najmainternational.com/api/user/user/",
+          `https://dish.najmainternational.com/api/getplans/${id}`,
           {
             method: "GET",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            //body: JSON.stringify({
-            //email,
-            //password,
-            // username,
-            // phoneno,
-            // password_confirm,
-            //}),
+            
           }
         );
 
@@ -47,7 +45,7 @@ const Company_registration_step = () => {
 
         const data = await res.json();
         setResponse(data);
-        console.log(data);
+        console.log('get_plan',data);
       } catch (err) {
         setError(err.message);
       }
