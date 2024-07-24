@@ -11,9 +11,8 @@ const HeaderFile = ({userProfile}) => {
   const [islogin ,setloginopen] = useState(false);
   const [error ,setError] = useState();
   const[username,Setusername] = useState(null);
- const [token_data,setToken] = useState(null);
 
- console.log(userProfile);
+ console.log('header userprofile',userProfile);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
