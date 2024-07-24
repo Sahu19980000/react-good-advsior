@@ -14,7 +14,7 @@ const HeaderFile = ({userProfile}) => {
 
  console.log('header userprofile',userProfile);
  Setusername(userProfile)
- console.log(username.username);
+ console.log(username);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
