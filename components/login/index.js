@@ -34,6 +34,16 @@ const LoginPanel = (props) => {
     }
   }, [token, userProfile]);
 
+  useEffect(() => {
+    if (response) {
+      const timer = setTimeout(() => {
+        setResponse(null);
+      }, 3000); // 3000 milliseconds = 3 seconds
+
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or if response changes
+    }
+  }, [response]);
+
   const handleGetUserDetails = async (token) => {
     try {
       const res = await fetch(
