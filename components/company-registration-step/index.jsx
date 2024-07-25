@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { Buttoncomponent } from '../button';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import Placeholder from 'react-bootstrap/Placeholder';
 
 export const ThemeContext = createContext(33);
 
@@ -45,7 +46,7 @@ const Company_registration_step = () => {
 
         const data = await res.json();
         setResponse(data);
-        console.log('get_plan',response);
+        console.log('get_plan',data);
       } catch (err) {
         setError(err.message);
       }
@@ -114,12 +115,15 @@ const Company_registration_step = () => {
                   <div className="row">
                     <div className="col-lg-12">
                       <Formstep />
+                      
                       {
                         response.map((ele,index)=>{
+                          const quizitems_data = ele.quizitems;
+                          console.log('response data',quizitems_data);
                           return(
                             step === index && <Formone 
                             title={ele.question_title_name} 
-                            quizitems_data={ele.quizitems}
+                            quizitems_data={quizitems_data}
                             />
                            
                           )

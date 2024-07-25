@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "..";
 
-const Formone = ({ title, quizitems_data }) => {
+const Formone = ({title,quizitems_data}) => {
   const { formdata, setformdata } = useContext(ThemeContext);
   const [selectedItem, setSelectedItem] = useState("");
 
@@ -9,9 +9,9 @@ const Formone = ({ title, quizitems_data }) => {
     setSelectedItem(event.target.value);
   };
 
-  // console.log(formdata);
+  // console.log('quiz',props);
+  
   // console.log(setformdata);
-  console.log(quizitems_data);
 
   const get_value = (ele) => {
     setformdata((prevstate) => ({
@@ -29,9 +29,9 @@ const Formone = ({ title, quizitems_data }) => {
       </p>
       <form action="" className="p-2">
         <p>{title}</p>
-        {/* <select onChange={handleChange} value={selectedItem}>
+        <select onChange={handleChange} value={selectedItem}>
           <option value="">Select an item</option>
-          {quizitems.map((item) => (
+          {quizitems_data.map((item) => (
             <option key={item.id} value={item.id}>
               {item.name}
             </option>
@@ -44,12 +44,12 @@ const Formone = ({ title, quizitems_data }) => {
               ID: {selectedItem} <br />
               Name:{" "}
               {
-                quizitems.find((item) => item.id === parseInt(selectedItem))
+                quizitems_data.find((item) => item.id === parseInt(selectedItem))
                   .name
               }
             </p>
           </div>
-        )} */}
+        )}
       </form>
     </div>
   );
