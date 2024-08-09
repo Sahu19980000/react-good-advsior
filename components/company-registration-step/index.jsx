@@ -72,13 +72,9 @@ const Company_registration_step = () => {
     setWidth(prevWidth => prevWidth + 33);
 
     if (step === 4 || width === 99) {
-
       let get_data = document.getElementsByClassName("registration-step-box")[0];
       let get_certificate = document.getElementsByClassName("certificate")[0];
       console.log(get_certificate);
-      get_data.style.display = "none";
-      get_certificate.style.display = "none";
-      console.log(get_data);
     }
   };
 
@@ -132,9 +128,7 @@ const Company_registration_step = () => {
                       )
                       }
 
-                      {/* {step === 0 && <Formone type=""/>}
-                      {step === 1 && <Formtwo />}
-                      {step === 2 && <Formthree />} */}
+                      
                       <div className='d-flex justify-content-between' style={{ width: "170px" }}>
                         <span onClick={get_nextform}>
                           <Buttoncomponent title_data="Next" />
